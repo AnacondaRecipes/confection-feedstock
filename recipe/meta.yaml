@@ -10,7 +10,7 @@ source:
   sha256: c977841f277255b0b59acb5b4e8a2d7d266ee4369278308fc2b820ec314fc5d7
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
@@ -35,7 +35,7 @@ test:
   requires:
     - pip
     - catalogue >=2.0.3,<2.1.0
-    - pathy >=0.3.5
+    - pathy >=0.3.5  # [not (win and arm64)]
     - pytest >=5.2.0,!=7.1.0
     - numpy >=1.15.0
     - hypothesis
